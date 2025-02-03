@@ -29,7 +29,7 @@ def train_and_evaluate_model(X_train, y_train, X_test, y_test, label):
     print(classification_report(y_test, y_pred, zero_division=1))
     print()
 
-def linearRegresion1():
+def linearRegresion():
     # Load and preprocess data
     file_path = "dataBalance/imbalanceFifaR.csv"
     df = pd.read_csv(file_path)
@@ -85,3 +85,6 @@ def linearRegresion1():
     print("Ans: Oversampling conquers over undersampling due to the data balance tha oversampling normally achieves, this aint always like this but in a normal scenario we would want to balance the data as balanced as posible")
     print("Which metrics are most useful for evaluating models in problems withimbalanced classes?")
     print("Ans: In my humble opinion I would say precision, recall, and accuracy al of them calculated a strict precision based on what data can be wrong or truhty")
+
+# if u're pasting and running this single file directly just uncomment the line below
+#linearRegresion
