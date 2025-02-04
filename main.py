@@ -1,7 +1,10 @@
 from dataBalance.dataImbalance import linearRegresion
 from BFS.BFSAct3TreasureMap import BFSAct3TreasureMap
 from DFS.DFSAct3Treasure import DFSAct3TreasureMap
+from greedySearch.greedySearchCities import greedySearchCities
 from uniformCostSearch.uniformCostSearchCities import uniformCostSearchCities
+from AStarTreeSearch.AStarTreeSearchCities import AStarTreeSearchCities
+from AStarGraphSearch.AStarGraphSearchCities import AStarGraphSearchCities
 
 def displayMenu(options):
     """Display menu options and return user's choice."""
@@ -20,6 +23,9 @@ def main():
         "BFSAct3TreasureMap",
         "DFSAct3TreasureMap",
         "uniformCostSearchCities"
+        "greedySearchCities"
+        "AStarTreeSearchCities"
+        "AStarGraphSearchCities"
         "Back",
         "Exit"
     ]
@@ -30,8 +36,11 @@ def main():
         "2": BFSAct3TreasureMap,
         "3": DFSAct3TreasureMap,
         "4": uniformCostSearchCities,
-        "5": lambda: None,  # Back action
-        "6": exit
+        "5": greedySearchCities,
+        "6": AStarTreeSearchCities,
+        "7": AStarGraphSearchCities,
+        "8": lambda: None,  # Back action
+        "9": exit
     }
     
     while True:
@@ -46,7 +55,7 @@ def main():
                 
                 if exerciseChoice in exerciseActions:
                     action = exerciseActions[exerciseChoice]
-                    if exerciseChoice == "5":  # Back option
+                    if exerciseChoice == "8":  # Back option
                         break
                     action()
                 else:
