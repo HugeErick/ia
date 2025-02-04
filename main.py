@@ -1,5 +1,7 @@
 from dataBalance.dataImbalance import linearRegresion
 from BFS.BFSAct3TreasureMap import BFSAct3TreasureMap
+from DFS.DFSAct3Treasure import DFSAct3TreasureMap
+from uniformCostSearch.uniformCostSearchCities import uniformCostSearchCities
 
 def displayMenu(options):
     """Display menu options and return user's choice."""
@@ -8,7 +10,6 @@ def displayMenu(options):
     return input()
 
 def main():
-    # Define menu options as lists
     mainMenu = [
         "Choose exercise",
         "Exit"
@@ -17,16 +18,20 @@ def main():
     exerciseMenu = [
         "Data balance",
         "BFSAct3TreasureMap",
+        "DFSAct3TreasureMap",
+        "uniformCostSearchCities"
         "Back",
         "Exit"
     ]
     
-    # Menu action mappings
+    # manual ass mapping
     exerciseActions = {
         "1": linearRegresion,
         "2": BFSAct3TreasureMap,
-        "3": lambda: None,  # Back action
-        "4": exit
+        "3": DFSAct3TreasureMap,
+        "4": uniformCostSearchCities,
+        "5": lambda: None,  # Back action
+        "6": exit
     }
     
     while True:
@@ -35,12 +40,13 @@ def main():
         
         if choice == "1":
             while True:
-                print()  # Empty line for spacing
+                print()
+                print("Exercises:")
                 exerciseChoice = displayMenu(exerciseMenu)
                 
                 if exerciseChoice in exerciseActions:
                     action = exerciseActions[exerciseChoice]
-                    if exerciseChoice == "3":  # Back option
+                    if exerciseChoice == "5":  # Back option
                         break
                     action()
                 else:
