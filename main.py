@@ -2,9 +2,11 @@ from dataBalance.dataImbalance import linearRegresion
 from BFS.BFSAct3TreasureMap import BFSAct3TreasureMap
 from DFS.DFSAct3Treasure import DFSAct3TreasureMap
 from greedySearch.greedySearchCities import greedySearchCities
+from optimization.optimizationMethods import runMethods
 from uniformCostSearch.uniformCostSearchCities import uniformCostSearchCities
 from AStarTreeSearch.AStarTreeSearchCities import AStarTreeSearchCities
 from AStarGraphSearch.AStarGraphSearchCities import AStarGraphSearchCities
+from optimization.optimizationMethods import runMethods
 
 def displayMenu(options):
     """Display menu options and return user's choice."""
@@ -14,11 +16,12 @@ def displayMenu(options):
 
 def main():
     mainMenu = [
-        "Choose exercise",
-        "Exit"
+        "1: Choose exercise partial 1",
+        "2: Choose exercise partial 2",
+        "3: Exit"
     ]
     
-    exerciseMenu = [
+    exerciseMenuPartial1 = [
         "Data balance",
         "BFSAct3TreasureMap",
         "DFSAct3TreasureMap",
@@ -29,9 +32,16 @@ def main():
         "Back",
         "Exit"
     ]
+
+    exerciseMenuPartial2 = [
+        "Optimization methods",
+        "Back",
+        "Exit"
+    ]
+
     
     # manual ass mapping
-    exerciseActions = {
+    exerciseActionsPartial1 = {
         "1": linearRegresion,
         "2": BFSAct3TreasureMap,
         "3": DFSAct3TreasureMap,
@@ -43,6 +53,12 @@ def main():
         "9": exit
     }
     
+    exerciseActionsPartial2 = {
+        "1": runMethods,
+        "2": lambda: None,  # Back action
+        "3": exit
+    }
+
     while True:
         print("\nhello pls choose")
         choice = displayMenu(mainMenu)
@@ -51,10 +67,10 @@ def main():
             while True:
                 print()
                 print("Exercises:")
-                exerciseChoice = displayMenu(exerciseMenu)
+                exerciseChoice = displayMenu(exerciseMenuPartial1)
                 
-                if exerciseChoice in exerciseActions:
-                    action = exerciseActions[exerciseChoice]
+                if exerciseChoice in exerciseActionsPartial1:
+                    action = exerciseActionsPartial1[exerciseChoice]
                     if exerciseChoice == "8":  # Back option
                         break
                     action()
@@ -62,6 +78,20 @@ def main():
                     print("Invalid option, please try again")
         
         elif choice == "2":
+            while True:
+                print()
+                print("Exercises:")
+                exerciseChoice = displayMenu(exerciseMenuPartial2)
+                
+                if exerciseChoice in exerciseActionsPartial2:
+                    action = exerciseActionsPartial2[exerciseChoice]
+                    if exerciseChoice == "2":  # Back option
+                        break
+                    action()
+                else:
+                    print("Invalid option, please try again")
+
+        elif choice == "3":
             break
         else:
             print("Invalid option, please try again")
