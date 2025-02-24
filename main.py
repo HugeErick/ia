@@ -7,6 +7,7 @@ from uniformCostSearch.uniformCostSearchCities import uniformCostSearchCities
 from AStarTreeSearch.AStarTreeSearchCities import AStarTreeSearchCities
 from AStarGraphSearch.AStarGraphSearchCities import AStarGraphSearchCities
 from optimization.optimizationMethods import runMethods
+from nonMonotonic.nonMonotonicSystem import runNonMonotonics
 
 def displayMenu(options):
     """Display menu options and return user's choice."""
@@ -16,8 +17,8 @@ def displayMenu(options):
 
 def main():
     mainMenu = [
-        "1: Choose exercise partial 1",
-        "2: Choose exercise partial 2",
+        "1: Choose exercises partial 1",
+        "2: Choose exercises partial 2",
         "3: Exit"
     ]
     
@@ -35,6 +36,7 @@ def main():
 
     exerciseMenuPartial2 = [
         "Optimization methods",
+        "Non monotonics methods"
         "Back",
         "Exit"
     ]
@@ -55,8 +57,9 @@ def main():
     
     exerciseActionsPartial2 = {
         "1": runMethods,
-        "2": lambda: None,  # Back action
-        "3": exit
+        "2": runNonMonotonics,
+        "3": lambda: None,  # Back action
+        "4": exit
     }
 
     while True:
@@ -85,7 +88,7 @@ def main():
                 
                 if exerciseChoice in exerciseActionsPartial2:
                     action = exerciseActionsPartial2[exerciseChoice]
-                    if exerciseChoice == "2":  # Back option
+                    if exerciseChoice == "3":  # Back option
                         break
                     action()
                 else:
