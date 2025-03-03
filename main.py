@@ -8,6 +8,7 @@ from AStarTreeSearch.AStarTreeSearchCities import AStarTreeSearchCities
 from AStarGraphSearch.AStarGraphSearchCities import AStarGraphSearchCities
 from optimization.optimizationMethods import runMethods
 from nonMonotonic.nonMonotonicSystem import runNonMonotonics
+from recursiveLogistic.LogisticRecursive import runLogisticGrowth
 
 def displayMenu(options):
     """Display menu options and return user's choice."""
@@ -36,9 +37,10 @@ def main():
 
     exerciseMenuPartial2 = [
         "Optimization methods",
-        "Non monotonics methods"
+        "Non monotonics methods",
+        "run recursive system",
         "Back",
-        "Exit"
+        "Exit",
     ]
 
     
@@ -58,8 +60,9 @@ def main():
     exerciseActionsPartial2 = {
         "1": runMethods,
         "2": runNonMonotonics,
-        "3": lambda: None,  # Back action
-        "4": exit
+        "3": runLogisticGrowth,
+        "4": lambda: None,  # Back action
+        "5": exit
     }
 
     while True:
@@ -88,7 +91,7 @@ def main():
                 
                 if exerciseChoice in exerciseActionsPartial2:
                     action = exerciseActionsPartial2[exerciseChoice]
-                    if exerciseChoice == "3":  # Back option
+                    if exerciseChoice == "4":  # Back option
                         break
                     action()
                 else:
