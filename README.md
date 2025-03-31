@@ -3,7 +3,7 @@
 This project demonstrates data balancing techniques for machine learning, including oversampling and undersampling methods, along with various search algorithms and optimization techniques.
 
 > [!WARNING]
-> This method was unsustainable, for code retreival there will be a collab link or a pdf with the collab link all the times.
+> This method was unsustainable, for code retreival there will be a collab link or a pdf with the collab link all the times OR A FOLDER NAME WITH THE ACTIVITY NAME.
 
 ## Setup
 
