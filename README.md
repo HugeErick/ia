@@ -69,8 +69,9 @@ The program presents a menu-driven interface with two main sections:
 
 3. **Exercise Menu Partial 2:**
    - Choose "1" for Optimization Methods
-   - Choose "2" to go back to the main menu
-   - Choose "3" to exit
+   - Choose "2" for RNN Poem Generation
+   - Choose "3" to go back to the main menu
+   - Choose "4" to exit
 
 ### Data Balance Exercise
 When you select the **Data Balance** exercise, it will execute the `linearRegresion()` function, which performs the following:
@@ -94,6 +95,63 @@ All scripts have been tested and run without issues in **Google Colab**, making 
 
 3. **Which metrics are most useful for evaluating models in problems with imbalanced classes?**
    - Precision, recall, and accuracy are crucial for determining the correctness and effectiveness of the model.
+
+### RNN Poem Generation Exercise
+The RNN implementation (`rnn/` directory) demonstrates text generation using GRU (Gated Recurrent Unit) architecture. The project includes:
+
+1. **Dataset:**
+   - 10 original poems embedded in the code (`poems.py`)
+   - Themes include nature, urban life, and abstract concepts
+   - Each poem follows a consistent structure with title and four-line stanzas
+
+2. **Implementation Details (`main.py`):**
+   - **Preprocessing Pipeline:**
+     - Text cleaning and normalization
+     - Character-level tokenization
+     - Sequence generation for training
+
+   - **Model Architecture:**
+     - GRU-based neural network
+     - Two GRU layers (128 units each)
+     - Dense layers for character prediction
+     - Softmax activation for output
+
+   - **Features:**
+     - camelCase naming convention
+     - Character-level text generation
+     - Configurable sequence length
+     - Probability-based text sampling
+
+3. **Usage:**
+   ```bash
+   cd rnn
+   python main.py
+   ```
+   The script will:
+   - Process the embedded poems
+   - Train the GRU model
+   - Generate new poem-like text from a seed phrase
+
+4. **Requirements:**
+   ```bash
+   pip install tensorflow numpy
+   ```
+
+### Questions from the RNN Exercise
+1. **Why use character-level tokenization instead of word-level?**
+   - Character-level allows for more creative text generation
+   - Handles unknown words better
+   - Works well with smaller datasets
+
+2. **What is the role of the GRU architecture?**
+   - GRU cells help maintain long-term dependencies in the text
+   - More efficient than traditional RNNs
+   - Helps prevent vanishing gradient problems
+
+3. **How does the preprocessing pipeline help in training?**
+   - Normalizes text for consistent input
+   - Creates meaningful sequences for training
+   - Converts text to numerical format for the neural network
 
 ## Contact Information
 
